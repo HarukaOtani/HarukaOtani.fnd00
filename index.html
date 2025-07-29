@@ -3,23 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>2048 Game</title>
-  <!-- 外部CSSファイルの読み込み -->
   <link rel="stylesheet" href="style.css" type="text/css">
   <!-- <style style.css></style> -->
 </head>
 <body>
-  <h1>2048 Game</h1>
-  <div>
-    <button type="button" onclick="gamestart()">Game Start!</button>
-    <button type="button" onclick="reset()">Reset</button>
-    <canvas id="canvas" width="450" height="450"></canvas>
-    <button id="moveButton" type="button" onclick="upBlock()">⏫</button>
-    <button id="moveButton" type="button" onclick="rightBlock()">⏩</button>
-    <button id="moveButton" type="button" onclick="leftBlock()">⏪</button>
-    <button id="moveButton" type="button" onclick="downBlock()">⏬</button>
+  <h1>- 2048 Game -</h1>
+  <div id="sea">
+    <img src="sea.jpeg" width="1300px" height="850px" ></img>
+    <div id="inSea"> 
+      <div id="whiteBackground">
+        <div id="white"></div>
+        <div id="top">
+          <button id="start" onclick="gamestart()">Game Start!</button>
+          <button id="reset" type="button" onclick="reset()">Reset</button>
+          <div id="playBlock">
+            <canvas id="canvas" width="450" height="450"></canvas>
+            <div class="centering_parent">
+              <button class="moveButton" type="button" onclick="upBlock()">⏫</button>
+              <div id="leftAndRight">
+                <button class="moveButton" id="left" type="button" onclick="leftBlock()">⏪</button>
+                
+                <button class="moveButton" id="right" type="button" onclick="rightBlock()">⏩</button>
+              </div>
+              <button class="moveButton" type="button" onclick="downBlock()">⏬</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
   </div>
-
-  <!-- 外部JavaScriptファイルの読み込み -->
   <script src="main.js"></script>
 </body>
 </html>
