@@ -54,7 +54,6 @@ canvas {
   align-items: center;
 }
 
-/*start resetボタン*/
 #start, #reset {
   display: inline-block;
   vertical-align: top;
@@ -71,7 +70,6 @@ canvas {
   color: #ffffff;
 }
 
-/*ブロック移動ボタン*/
 .moveButton {
   width: 100px;
   margin-right: 5px;
