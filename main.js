@@ -1,36 +1,7 @@
 "use strict";
-//canvasを作った(４５０*４５０）
-//ブロックを一つ作成
-//一つ目のブロックと位置が被らないように2つ目のブロックを作成
-//↑その際位置決め用の配列を作成
-//⏫を作成
-//ボタンを押したら一つ目のブロックが上にスライドする関数を作成
-//ボタンを押したら一つ目のブロックが下にスライドする関数を作成
-//連なったブロックが重ならないようにスライドするように変更する
-//ブロックの中央に数字を乗せる
-//配列に入っている数字1を1→2に変更して整える
 
-//同じ数字であれば足してブロックが一つになって上にいく
-//空白と上下で同じ数字が無いときはブロックを作成しない
-//resetボタンを押したら2が2つある状態からやり直せる
-//boardに数値がある状態でGameStartを押しても何も起きない
-//下ボタンを押したらブロックが下に移動＋数字を足す（移動も数字を足すこともできないときは何もしない）
-//右カーソルを押すとブロックが右に移動＋数字を足す（移動も数字を足すこともできないときは何もしない）
-//左カーソルを押すとブロックが左に移動＋数字を足す（移動も数字を足すこともできないときは何もしない）
-//挙動の移動ボタンの挙動がおかしいため、修正
-//ボタン位置等の修正
-
-//数字が足せなくなったらGameOverと表示する
-
-
-
-// //Game画面を用意する
-// const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-// ctx.fillStyle = "#ffff00";
-// ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-//Gameのボードを用意する
 const board = [
   [0, 0, 0, 0],
   [0, 0, 0, 0],
@@ -39,7 +10,6 @@ const board = [
 ]
 const array = [10,120,230,340];
 
-// Resetボタンを押したらゲーム開始前の画面になる
 function reset(){
   for (let x = 0; x < 4; x++){
     for(let y = 0; y < 4; y++){
@@ -49,7 +19,6 @@ function reset(){
   gamestart();
 }
 
-//最初のブロックの位置を定義(boardに数値が入っているときは動かない)
 function gamestart(){
   let counter = 0;
   for (let y = 1; y < 4; y++){
@@ -67,7 +36,6 @@ function gamestart(){
   }
 }
 
-//ボタンを押すと２のブロックがランダムに作成される
 function addBoardNew2(){
   let x2;
   let y2;
@@ -85,72 +53,27 @@ function addBoardNew2(){
   canvusReflesh();
 }
 
-//canvusを初期化して数字の入ったブロックに色をつける
 function canvusReflesh(){
-  ctx.fillStyle = "#4de7ffff"; //canvas全体の色を指定
-  ctx.fillRect(0, 0, canvas.width, canvas.height);//canvasを塗る
+  ctx.fillStyle = "#4de7ffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   for (let x = 0; x < 4; x++){
     for(let y = 0; y < 4; y++){
       if(board[y][x] > 0){
         const number = board[y][x];
-        ctx.fillStyle = "#ffffff";//ブロックの色を指定
-        ctx.fillRect(array[x], array[y], 100, 100);//ブロックを塗る
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(array[x], array[y], 100, 100);
 
-        ctx.font = "40px Arial"; // フォントを指定
-        ctx.fillStyle = "black"; // 文字色を指定
-        ctx.textAlign = "center"; // 水平方向の中央揃え
-        ctx.textBaseline = "middle"; // 垂直方向の中央揃え
-        ctx.fillText(number, array[x] + 50, array[y] + 50);//フォントを表示
+        ctx.font = "40px Arial";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(number, array[x] + 50, array[y] + 50);
       }
     }
   }
 }
 
-// 上ボタンを押すとブロックが上に移動する
-// function upBlock(){
-//   for (let x = 0; x < 4; x++){
-//     for (let y = 0; y < 4; y++){
-//       if (board[y][x] > 0){
-//         if(y > 0){
-//           for (let i = 1; i <= y; i++){
-//             if (board[y - i][x] === 0){
-//               board[y - 1][x] = board[y][x];
-//               board[y][x] = 0;
-//   }}}}}}    
-//   canvusReflesh();
-// }
-
-// リファクタリング、変更１
-// function upBlock(){
-//   for (let x = 0; x < 4; x++){
-//     for (let y = 1; y < 4; y++){
-//       if (board[y][x] === 1){
-//         for (let i = y - 1; i > -1; i--){
-//             if (board[i][x] === 0){
-//               board[i][x] = board[i + 1][x];
-//               board[i + 1][x] = 0;
-//   }}}}}
-//   canvusReflesh();
-// }
-
-// リファクタリング、変更２
-// function upBlock(){
-//   for (let x = 0; x < 4; x++){
-//     for (let y = 1; y < 4; y++){
-//       if (board[y][x] > 0){
-//         for (let i = y - 1; i > -1; i--){
-//             if (board[i][x] === 0){
-//               console.log(board);
-//               board[i][x] = board[i + 1][x];
-//               board[i + 1][x] = 0;
-//   }}}}}
-//   canvusReflesh();
-//   addBoardNew2();
-// }
-
-//リファクタリング、変更３
-console.log(board);
 function upBlock(){
     let counter = 0;
     for (let y = 1; y < 4; y++){
@@ -171,7 +94,6 @@ function upBlock(){
     }                 
 }
 
-//リファクタリング、変更１
 function downBlock(){
   let counter = 0;
   for (let y = 2; y > -1; y--){
@@ -192,7 +114,6 @@ function downBlock(){
   }                 
 }
 
-//右ボタンを押すとブロックが右に移動する
 function rightBlock(){
   let counter = 0;
   for (let x = 2; x > -1; x--){
@@ -213,7 +134,6 @@ function rightBlock(){
   }                 
 }
 
-//左ボタンを押すとブロックが左に移動する
 function leftBlock(){
   let counter = 0;
   for (let y = 0; y < 4; y++){
