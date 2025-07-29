@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>2048 Game</title>
+  <!-- 外部CSSファイルの読み込み -->
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <!-- <style style.css></style> -->
+</head>
+<body>
+  <h1>2048 Game</h1>
+  <div>
+    <button type="button" onclick="gamestart()">Game Start!</button>
+    <button type="button" onclick="reset()">Reset</button>
+    <canvas id="canvas" width="450" height="450"></canvas>
+    <button id="moveButton" type="button" onclick="upBlock()">⏫</button>
+    <button id="moveButton" type="button" onclick="rightBlock()">⏩</button>
+    <button id="moveButton" type="button" onclick="leftBlock()">⏪</button>
+    <button id="moveButton" type="button" onclick="downBlock()">⏬</button>
+  </div>
+
+  <!-- 外部JavaScriptファイルの読み込み -->
+  <script src="main.js"></script>
+</body>
+</html>
