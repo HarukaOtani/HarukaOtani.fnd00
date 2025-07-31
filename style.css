@@ -9,10 +9,6 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-canvas {
-  margin: 0 auto;
-  background-color: rgb(213, 213, 213);
-}
 
 #sea {
   position: relative;
@@ -36,8 +32,8 @@ canvas {
 
 #white {
   height: 700px;
-  width: 900px;
-  background-color: #ffffff;
+  width: 1000px;
+  background-color: #ffffffc8;
   position: relative;
 }
 
@@ -51,6 +47,11 @@ canvas {
   align-items: center;
 }
 
+canvas {
+  margin-left: 30px;
+  background-color: rgb(213, 213, 213);
+}
+
 #start, #reset {
   display: inline-block;
   vertical-align: top;
@@ -58,10 +59,9 @@ canvas {
   width: 100px;
   font-size: 30px;
   margin-bottom: 30px;
-  margin-right: 25px;
-  margin-left: 25px;
-  background-color: rgb(145, 167, 186);
-  border-color: rgb(186, 241, 255);
+  margin-left: 95px;
+  background-color: rgb(159, 192, 214);
+  border-color: rgb(198, 219, 237);
   border-width: 5px;
   font-family: fantasy;
   color: #ffffff;
@@ -81,7 +81,7 @@ canvas {
 .centering_parent{
   text-align: center;
   margin-top: 20%;
-  margin-left: 30px;
+  margin-left: 70px;
 }
 
 #leftAndRight {
@@ -90,10 +90,10 @@ canvas {
 
 #left {
   display: inline-block;
-  margin-right: 80px;
+  margin-right: 50px;
 }
 
-#righr {
+#right{
   display: inline-block;
-  margin-left: 80px;
+  margin-left: 50px;
 }
